@@ -6,7 +6,7 @@ public class Solution {
         // if the element one left to the midpoint is smaller than the midpoint
         // AND if the element one index to the right of the midpoint is greater than the midpoint
         // then return the middle index
-        if ((mid == 0 || arr[mid] >= arr[mid - 1]) && (arr[mid] >= arr[mid + 1] || mid == arrLength - 1)) {
+        if ((mid == 0 || mid == arr.length - 1 || arr[mid] >= arr[mid - 1]) && (arr[mid] >= arr[mid + 1] || mid == arrLength - 1)) {
             return mid;
         }
         else if (mid > 0 && arr[mid] < arr[mid - 1]) {
@@ -19,7 +19,7 @@ public class Solution {
     
     public static void printArray(int[] arr, int arrLength) {
         // print out the contents of the array being tested
-        System.out.println("This is the array being tested:");
+        System.out.println("\nThis is the array being tested:");
         for (int i = 0; i < arr.length; i++) {
             // format the printed array so that large arrays aren't all on one line
             if (i % 10 == 0 && i != 0) {
@@ -39,8 +39,8 @@ public class Solution {
         // repeating array (technically the array shouldn't repeat anything for
         // this problem but my program handles it anyway
         int[] arr4 = new int[]{4, 4, 4, 4}; //peak = 4
-        // ascending array
-        int[] arr5 = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}; //peak 9
+        // negative array
+        int[] arr6 = new int[]{-5, -4, -2, -3}; // peak -2
         
         printArray(arr1, arr1.length);
         int peakNum1 = findPeakElement(arr1, 0, arr1.length - 1, arr1.length);
@@ -53,9 +53,9 @@ public class Solution {
         System.out.println("\nThe peak entry is " + peakNum3 + " which contains element " + arr3[peakNum3]);
         printArray(arr4, arr4.length);
         int peakNum4 = findPeakElement(arr4, 0, arr4.length - 1, arr4.length);
-        System.out.println("\nThe peak entry is " + peakNum3 + " which contains element " + arr4[peakNum4]);
-        printArray(arr5, arr5.length);
-        int peakNum5 = findPeakElement(arr5, 0, arr5.length - 1, arr5.length);
-        System.out.println("\nThe peak entry is " + peakNum5 + " which contains element " + arr5[peakNum5]);
+        System.out.println("\nThe peak entry is " + peakNum4 + " which contains element " + arr4[peakNum4]);
+        printArray(arr6, arr6.length);
+        int peakNum6 = findPeakElement(arr6, 0, arr6.length - 1, arr6.length);
+        System.out.println("\nThe peak entry is " + peakNum6 + " which contains element " + arr6[peakNum6]);
     }
 }
